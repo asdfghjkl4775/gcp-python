@@ -1,43 +1,32 @@
-# gcp_vpc_project/variables.tf
+# project_id = 782550109941
+# gcp-monitoring-project/variables.tf
+# terraform plan -var="782550109941"
 
 variable "gcp_project_id" {
-  description = "GCP Project ID"
+  description = "782550109941"
   type        = string
-  default     = "782550109941" # 여기에 직접 입력하거나 실행 시점에 주입
-}
-
-variable "gcp_region" {
-  description = "GCP Region"
-  type        = string
-  default     = "asia-northeast3" # 서울 리전
-}
-
-variable "gcp_zone" {
-  description = "GCP Zone"
-  type        = string
-  default     = "asia-northeast3-a" # 서울 a 존
-}
-
-variable "network_name" {
-  description = "Name of the VPC network"
-  type        = string
-  default     = "my-custom-vpc"
-}
-
-variable "subnet_name" {
-  description = "Name of the subnetwork"
-  type        = string
-  default     = "my-custom-subnet"
-}
-
-variable "subnet_ip_cidr_range" {
-  description = "IP CIDR range for the subnetwork"
-  type        = string
-  default     = "10.0.1.0/24"
 }
 
 variable "credentials_file_path" {
   description = "Path to the GCP service account key file"
   type        = string
-  # default     = "credentials/gcp-key.json" # 실제 경로로 수정
+  default     = "credentials/gcp-key.json"
+}
+
+variable "region" {
+  description = "GCP Region for the resources"
+  type        = string
+  default     = "asia-northeast3" # 서울 리전
+}
+
+variable "zone" {
+  description = "GCP Zone for the resources"
+  type        = string
+  default     = "asia-northeast3-a" # 서울 a 존
+}
+
+variable "vm_names" {
+  description = "A list of VM instance names to create"
+  type        = list(string)
+  default     = ["monitor-target-vm-1", "monitor-target-vm-2"]
 }
