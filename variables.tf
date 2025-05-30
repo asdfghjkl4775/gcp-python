@@ -16,13 +16,13 @@ variable "credentials_file_path" {
 variable "region" {
   description = "GCP Region for the resources"
   type        = string
-  default     = "asia-northeast3" # ¼­¿ï ¸®Àü
+  default     = "asia-northeast3" # ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 variable "zone" {
   description = "GCP Zone for the resources"
   type        = string
-  default     = "asia-northeast3-a" # ¼­¿ï a Á¸
+  default     = "asia-northeast3-a" # ï¿½ï¿½ï¿½ï¿½ a ï¿½ï¿½
 }
 
 variable "vm_names" {

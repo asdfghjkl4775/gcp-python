@@ -1,0 +1,25 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.archive_file.source_zip" [label="data.archive_file.source_zip"];
+  "google_cloud_scheduler_job.monitoring_scheduler" [label="google_cloud_scheduler_job.monitoring_scheduler"];
+  "google_cloudfunctions2_function.monitoring_function" [label="google_cloudfunctions2_function.monitoring_function"];
+  "google_compute_firewall.allow_icmp" [label="google_compute_firewall.allow_icmp"];
+  "google_compute_firewall.allow_ssh" [label="google_compute_firewall.allow_ssh"];
+  "google_compute_instance.vm_instance" [label="google_compute_instance.vm_instance"];
+  "google_compute_network.vpc_network" [label="google_compute_network.vpc_network"];
+  "google_compute_subnetwork.subnet" [label="google_compute_subnetwork.subnet"];
+  "google_pubsub_topic.monitoring_trigger" [label="google_pubsub_topic.monitoring_trigger"];
+  "google_storage_bucket.source_bucket" [label="google_storage_bucket.source_bucket"];
+  "google_storage_bucket_object.source_object" [label="google_storage_bucket_object.source_object"];
+  "google_cloud_scheduler_job.monitoring_scheduler" -> "google_pubsub_topic.monitoring_trigger";
+  "google_cloudfunctions2_function.monitoring_function" -> "google_pubsub_topic.monitoring_trigger";
+  "google_cloudfunctions2_function.monitoring_function" -> "google_storage_bucket_object.source_object";
+  "google_compute_firewall.allow_icmp" -> "google_compute_network.vpc_network";
+  "google_compute_firewall.allow_ssh" -> "google_compute_network.vpc_network";
+  "google_compute_instance.vm_instance" -> "google_compute_firewall.allow_ssh";
+  "google_compute_instance.vm_instance" -> "google_compute_subnetwork.subnet";
+  "google_compute_subnetwork.subnet" -> "google_compute_network.vpc_network";
+  "google_storage_bucket_object.source_object" -> "data.archive_file.source_zip";
+  "google_storage_bucket_object.source_object" -> "google_storage_bucket.source_bucket";
+}

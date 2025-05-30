@@ -1,0 +1,9 @@
+strict digraph G {
+	"google_storage_bucket_object.source_object"->"google_storage_bucket.source_bucket";
+	"google_cloud_scheduler_job.monitoring_scheduler"->"google_pubsub_topic.monitoring_trigger";
+	"google_cloud_scheduler_job.monitoring_scheduler" [ shape=ellipse ];
+	"google_pubsub_topic.monitoring_trigger" [ height=1.15, image="C:\\Users\\asdfg\\AppData\\Local\\cache/inframap/assets/google/Data_Analytics/Cloud_PubSub.png", imagepos=tc, labelloc=b, shape=plaintext ];
+	"google_storage_bucket.source_bucket" [ height=1.15, image="C:\\Users\\asdfg\\AppData\\Local\\cache/inframap/assets/google/Storage/Cloud_Storage.png", imagepos=tc, labelloc=b, shape=plaintext ];
+	"google_storage_bucket_object.source_object" [ height=1.15, image="C:\\Users\\asdfg\\AppData\\Local\\cache/inframap/assets/google/Storage/Cloud_Storage.png", imagepos=tc, labelloc=b, shape=plaintext ];
+
+}
